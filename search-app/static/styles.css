@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    background-color: #1C1E21;
+    background-attachment: fixed;
+    padding-top: 50px;
+}
+
+
+h1 {
+    text-align: center;
+    padding-bottom: 50px;
+    line-height: 1.5;
+    /* font-family: "PT Serif", serif; */
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+}
+
+h3 {
+    color: #FFFFFF;
+}
+
+#searchInput {
+    padding: 15px;
+}
+
+p {
+    padding: 15px;
+    font-size: 25px;
+    color: #CCCCCC;
+}
+
+.form-elements {
+    padding: 0px 50px;
+}
+
+.form-label {
+    font-size: 15px;
+    padding: 2px;
+}
+
+.btn {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    padding: 2px 20px;
+    display: flex;
+    justify-content: center; 
+}
+
+.btn2 {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    padding: 50px 0px;
+    display: flex;
+}
+
+.date-label {
+    font-size: 16px;
+}
+
+.date-elements p{
+    padding-left: 0px;
+}
+
+.date-elements {
+    /* padding-left: 20px; */
+    padding-bottom: 20px;
+}
+
+input[type="radio"] {
+    padding: 5px;
+}
+
+.input-text{
+    color: #CCCCCC;
+    font-size: 20px;
+}
+
+input[type="date"] {
+    padding: 6px; /* Add padding to the input */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 4px; /* Add border-radius for rounded corners */
+    font-size: 14px; /* Set font size */
+    width: 150px; /* Set width */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+.sub-heading {
+    padding: 0px 300px;   
+}
+
+.results {
+    padding: 50px 300px;
+}
+
+.column {
+    padding: 0px 80px 0px 0px;
+    margin-left: 20px;
+}
+
+.element {
+    border:1px solid;
+    border-color: rgb(47, 51, 54);
+    color: #FFFFFF;
+    padding: 20px;
+    margin: 30px;
+}
+
+.circle {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%; /* This creates the circular shape */
+    overflow: hidden; /* This ensures the image stays within the circle */
+    border: 1px solid #CCCCCC;; /* Grey border */
+    margin-right: 10px;
+}
+
+.circle img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.display-name {
+    font-size: 18px;
+}
+
+.screen-name {
+    font-size: 15px;
+    color: #CCCCCC;
+}
+
+.created-at {
+    font-size: 16px;
+    color: #CCCCCC;
+}
+
+.tweet-source {
+    font-size: 16px;
+    color: #CCCCCC;
+}
+
+.ele1 {
+    text-align: left;
+    vertical-align: left;
+}
+
+.ele2 {
+    text-align: right;
+    vertical-align: right;
+    padding-left: 600px;
+}
+
+.retweet-id {
+    font-size: 16px;
+    color: #CCCCCC;
+}
+
+.info{
+    color: #FFFFFF;
+    padding-left: 300px;
+}
+
+.user-box {
+    border:1px solid;
+    border-color: rgb(47, 51, 54);
+    color: #FFFFFF;
+    padding: 20px;
+    margin: 60px 500px;   
+}
+
+.user-img {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%; /* This creates the circular shape */
+    overflow: hidden; /* This ensures the image stays within the circle */
+    border: 1px solid #CCCCCC;; /* Grey border */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.user-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.user-detail {
+    padding-left: 300px;
+}
+
+.user-row {
+    padding-bottom: 200px;
+}
+
+.tweet-lang {
+    padding-left: 150px;
+    font-size: 16px;
+    color: #CCCCCC;
+}

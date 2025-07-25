@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/static/index.css">
+        <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+
+    </head>
+
+    <body>
+
+        <h1>Search App</h1>
+
+        <p class="sub-heading">User Details</p>
+
+        <div class="user-info">
+
+            <div class="user-box">
+                <div class="user-img"><img src="{{ data[0][2] }}" alt="Profile Picture"></div><br><br>
+
+                <table>
+                   
+                        <tr>
+                            <td>User ID</td>
+                            <td class="user-detail"><div class="user-id">{{ data[0][0] }}</div></td>
+                        </tr>
+
+                    
+                        <tr>
+                            <td>Display Name</td>
+                            <td class="user-detail"><div class="user_name">{{ data[0][1] }}</div></td>
+                        </tr>
+             
+                    
+                    <tr>
+                        <td>Screen Name</td>
+                        <td class="user-detail"><div class="screen_name">{{ data[0][7] }}</div></td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td class="user-detail"><div class="user-desc">{{ data[4] }}</div></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td class="user-detail"><div class="user-loc">{{ data[0][6] }}</div></td>
+                    </tr>
+                    <tr>
+                        <td>Is verified?</td>
+                        <td class="user-detail"><div class="user-veri">{{ data[0][3] }}</div></td>
+                    </tr>
+                    <tr>
+                        <td>URL</td>
+                        <td class="user-detail"><div class="user-url">{{ data[0][5] }}</div></td>
+                    </tr>
+                    <tr>
+                        <td>Total Followers</td>
+                        <td class="user-detail"><div class="user-foll">{{ data[0][8] }}</div></td>
+                    </tr>
+                    <tr>
+                        <td>Total Friends</td>
+                        <td class="user-detail"><div class="user-fri">{{ data[0][9] }}</div></td>
+                    </tr>
+                </table>
+        
+            </div>
+        
+        </div>
+
+        <p class="sub-heading">User Tweets</p>
+
+        
+
+        <div class="results">
+            {% for tweet in cb_result %}
+            <div class="element">
+
+                <table>
+                    <tr>
+                      <td rowspan="2"><div class="circle"><img src="{{ data[0][2] }}" ></div></td>
+                      <td><div class="display-name"><a href="{{url_for('info', id=tweet['Tweets_Data']['user_id'])}}" rel="nofollow">{{ data[0][1] }}</a></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="screen-name">@{{ data[0][7] }}</div></td>
+                    </tr>
+                </table>
+                <br><br>
+
+                <div class="tweet-text">{{ tweet['Tweets_Data']['text'] }}</div><br><br>
+
+                <table>
+                    <tr>
+                        <td class="ele1"><div class="created-at">Created at: {{ " ".join(tweet['Tweets_Data']['created_at'].split("T")) }}</div></td>
+                        <td class="ele2"><div class="tweet-source">Source: {{ tweet['Tweets_Data']['source'].split(" ")[-1][:-4] }}</div></td>
+                    </tr>
+                </table>
+                <br>
+
+                <div class="row">
+                    <div class="column quote-count"><b>{{ tweet['Tweets_Data']['quote_count'] }}</b> Quotes</div>
+                    <div class="column reply-count"><b>{{ tweet['Tweets_Data']['reply_count'] }}</b> Replies</div>
+                    <div class="column retweet-count"><b>{{ tweet['Tweets_Data']['retweet_count'] }}</b> Retweets</div>
+                </div>
+                <br>
+
+                <table>
+                    <tr>
+                        <td class="ele1">
+                            {% if tweet['Tweets_Data']['retweet_id']!=None %}
+                            <div class="retweet-id">Original Tweet: <a href="user.html">{{ tweet['Tweets_Data']['retweet_id'] }}</a></div>
+                            {% else %}
+                            <div class="retweet-id">Original Tweet: {{ tweet['Tweets_Data']['retweet_id'] }}</div>
+                            {% endif %}
+                        </td>
+                        <td class="ele2"><div class="tweet-lang">Language: {{ tweet['Tweets_Data']['lang'] }}</div></td>
+                    </tr>
+                </table>
+    
+            </div>
+            {% endfor %}
+            
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    </body>
+
+</html>
+

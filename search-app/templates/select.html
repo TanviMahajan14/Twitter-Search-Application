@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/static/index.css">
+        <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+
+    </head>
+
+    <body>
+        <h1><center>Search App</center></h1>
+
+        <div id="inputForm">
+            <form class="inputForm" action="/results" method="post" style="margin:auto;max-width:600px" >
+                <p>Enter {{option}}</p>
+                <div id="searchInput">
+
+                    {% if option == "username" or option == "text" %}
+                    <input type="text" name="text">
+
+                    {% elif option == "hashtags" %}
+                    <input type="text" name="text" placeholder="Enter hashtag"><br><br>
+                    <div class="date-elements"><p>Select source:</p></div>
+                    <div class="input-text"><input type="radio" name="search-source" value="iphone">iPhone </input></div><br>
+                    <div class="input-text"><input type="radio" name="search-source" value="android">Android </input></div><br>
+                    <div class="input-text"><input type="radio" name="search-source" value="web">Web </input></div><br>
+
+
+                    {% elif option == "date"%}
+                    <input type="text" name="text" placeholder="Enter keyword"><br><br>
+                    
+                    <div class="date-elements">
+                        <p>Start Date:</p>
+                        <input type="date" name="start-date" id="date">
+                    </div>
+                    
+                    <div class="date-elements">
+                        <p>End Date:</p>
+                        <input type="date" name="end-date" id="date">
+                    </div>
+
+                    {% elif option == "lang" %}
+                    <div class="ele-lang">
+                        <input type="text" name="text" placeholder="Enter keyword"><br><br>
+                        <label for="lang"><p>Choose a language:</p></label>
+                        <select name="lang">
+                          <option value="en">en</option>
+                          <option value="fr">fr</option>
+                          <option value="pt">pt</option>
+                          <option value="tr">tr</option>
+                          <option value="tl">tl</option>
+                          <option value="in">in</option>
+                          <option value="und">und</option>
+                          <option value="es">es</option>
+                          <option value="hi">hi</option>
+                          <option value="de">de</option>
+                          <option value="it">it</option>
+                          <option value="nl">nl</option>
+                          <option value="gu">gu</option>
+                          <option value="mr">mr</option>
+                          <option value="ta">ta</option>
+                          <option value="ja">ja</option>
+                          <option value="pl">pl</option>
+                          <option value="sv">sv</option>
+                          <option value="zh">zh</option>
+                          <option value="te">te</option>
+                          <option value="fi">fi</option>
+                          <option value="cs">cs</option>
+                          <option value="ur">ur</option>
+                          <option value="cy">cy</option>
+                          <option value="ar">ar</option>
+                          <option value="et">et</option>
+                          <option value="ca">ca</option>
+                          <option value="si">si</option>
+                          <option value="th">th</option>
+                          <option value="bn">bn</option>
+                          <option value="lt">lt</option>
+                          <option value="sl">sl</option>
+                          <option value="da">da</option>
+                          <option value="eu">eu</option>
+                          <option value="bg">bg</option>
+                          <option value="ht">ht</option>
+                          <option value="ru">ru</option>
+                          <option value="ko">ko</option>
+                          <option value="no">no</option>
+                          <option value="ro">ro</option>
+                          <option value="pl">pl</option>
+                          <option value="vi">vi</option>
+                          <option value="pa">pa</option>
+                          <option value="ml">ml</option>
+                          <option value="kn">kn</option>
+                          <option value="lv">lv</option>
+                          <option value="is">is</option>
+                          <option value="ne">ne</option>
+                          <option value="fa">fa</option>
+                          <option value="or">or</option>
+                          <option value="hu">hu</option>
+                          <option value="el">el</option>
+                        </select>
+
+                    </div>
+                </div>
+                    {% endif %}
+                    
+                    <div class="btn2">
+                        <button type="submit">Submit</button>
+                    </div>
+                
+                </br>
+            </form>
+        </div> 
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+
+</html> 

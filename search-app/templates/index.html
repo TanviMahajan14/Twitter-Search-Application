@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/static/index.css">
+        <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+    </head>
+    <body>
+        <h1><center>Search App</center></h1>
+        <div class="secondary-bg">
+
+        
+            <div id="choiceForm">
+                <form class="choiceForm" action="/select" method="post" style="margin:auto;max-width:600px" >
+                    <p> Search By: <br></p>
+                    <div class="form-elements">
+                        <div class="input-text"><input type="radio" name="options" id="option1" value="username" class="form-label"> Username </input></div><br><br>
+                        <div class="input-text"><input type="radio" name="options" id="option2" value="text">Text</input></div><br><br>
+                        <div class="input-text"><input type="radio" name="options" id="option3" value="hashtags"> Hashtags </input></div><br><br>
+                        <div class="input-text"><input type="radio" name="options" id="option4" value="date">Date</input></div><br><br>
+                        <div class="input-text"><input type="radio" name="options" id="option4" value="lang">Language</input></div><br><br>
+                    </div>
+                    
+                    <p>Display Top 10: <br></p>
+                    <div class="input-text"> 
+                        <div class="form-elements">
+                            <div class="input-text"><input type="radio" name="options" class="form-label" id="c1" value="users">Users</input></div><br>
+                            <div class="input-text"><input type="radio" name="options" id="c2" value="tweets">Tweets</input></div>
+                        </div>
+                    </div>
+                    
+                    <br><br>
+                    <div class="btn">
+                        <button type="submit">Search</button><br><br>
+                    </div>
+                </form>
+            </div>
+            
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html> 

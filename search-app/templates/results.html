@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/static/index.css">
+        <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+
+    </head>
+
+    <body>
+        <h1><center>Search App</center></h1>
+        <div class="sub-heading"><h3>Results for "{{ search_text }}"</h3></div> <br>
+
+        <table >
+            <tr class="info-row">
+                <td class="info"><div class="count">Number of results: {{count }}</div></td>
+                <td class="info"><div class="search-time">Time taken: {{ time }} sec</div></td>
+            </tr>
+        </table>
+
+        {% if option == "date" %}
+        <br>
+        <table >
+            <tr class="info-row">
+                <td class="info"><div class="count">Start Date: {{ start_date }}</div></td>
+                <td class="info"><div class="search-time">End Date: {{ end_date }}</div></td>
+            </tr>
+        </table>
+        {% endif %}
+
+        {% if option == "hashtags" %}
+        <br>
+        <table >
+            <tr class="info-row">
+                <td class="info"><div class="count">Source: {{ search_source }}</div></td>
+            </tr>
+        </table>
+        {% endif %}
+
+        {% if option == "lang" %}
+        <br>
+        <table >
+            <tr class="info-row">
+                <td class="info"><div class="count">Language: {{ search_lang }}</div></td>
+            </tr>
+        </table>
+        {% endif %}
+        
+        
+        <div class="results">
+            {% for tweet in tweets %}
+            <div class="element">
+
+                <table>
+                    <tr>
+                      <td rowspan="2"><div class="circle"><img src="{{ tweet['postgresql_data']['profile_url'] }}" ></div></td>
+                      <td><div class="display-name"><a href="{{url_for('info', id=tweet['couchbase_data']['Tweets_Data']['user_id'])}}" rel="nofollow">{{ tweet['postgresql_data']['name'] }}</a></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="screen-name">@{{ tweet['postgresql_data']['screen_name'] }}</div></td>
+                    </tr>
+                </table>
+                <br><br>
+
+                <!-- <div class="profile-img"><img src="{{ tweet['postgresql_data']['name']['profile_url'] }}" alt="Profile Image"></div> -->
+                <!-- <div class="display-name"><a href="templates/user.html" rel="nofollow">{{ tweet['postgresql_data']['name'] }}</a></div> -->
+                <!-- <div class="screen-name">{{ tweet['postgresql_data']['screen_name'] }}</div> -->
+
+                <div class="tweet-text">{{ tweet['couchbase_data']['Tweets_Data']['text'] }}</div><br><br>
+
+                <table>
+                    <tr>
+                        <td class="ele1"><div class="created-at">Created at: {{ " ".join(tweet['couchbase_data']['Tweets_Data']['created_at'].split("T")) }}</div></td>
+                        <td class="ele2"><div class="tweet-source">Source: {{ tweet['couchbase_data']['Tweets_Data']['source'].split(" ")[-1][:-4] }}</div></td>
+                    </tr>
+                </table>
+                <br>
+
+                <div class="row">
+                    <div class="column quote-count"><b>{{ tweet['couchbase_data']['Tweets_Data']['quote_count'] }}</b> Quotes</div>
+                    <div class="column reply-count"><b>{{ tweet['couchbase_data']['Tweets_Data']['reply_count'] }}</b> Replies</div>
+                    <div class="column retweet-count"><b>{{ tweet['couchbase_data']['Tweets_Data']['retweet_count'] }}</b> Retweets</div>
+                </div>
+                <br>
+
+                <table>
+                    <tr>
+                        <td class="ele1">
+                            {% if tweet['couchbase_data']['Tweets_Data']['retweet_id']!=None %}
+                            <div class="retweet-id">Original Tweet: <a href="">{{ tweet['couchbase_data']['Tweets_Data']['retweet_id'] }}</a></div>
+                            {% else %}
+                            <div class="retweet-id">Original Tweet: {{ tweet['couchbase_data']['Tweets_Data']['retweet_id'] }}</div>
+                            {% endif %}
+                        </td>
+                        <td class="ele2"><div class="tweet-lang">Language: {{ tweet['couchbase_data']['Tweets_Data']['lang'] }}</div></td>
+                    </tr>
+                </table>
+    
+            </div>
+            {% endfor %}
+            
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+
+</html> 
